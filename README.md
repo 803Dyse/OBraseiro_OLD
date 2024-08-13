@@ -7,7 +7,6 @@ O Braseiro es una web dedicada al asador 'O Braseiro' de Ponteareas donde el usu
 
 
 ## Documentación 
-[Documentación externa del código](https://docs.google.com/document/d/1ZvSTsPFIy1oBJ-oPgxlORfd_s2qXMuL7UCcqfB5Wexk/edit?usp=sharing)  
 [Wireframes](https://linktodocumentation)  
 [Mockup](https://linktodocumentation)  
 [Diagrama de Clases](https://linktodocumentation)
