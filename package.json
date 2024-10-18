@@ -1,0 +1,16 @@
+{
+  "name": "obraseiro",
+  "version": "1.0.0",
+  "description": "Este es mi repositorio del proyecto de fin de ciclo de DAW.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build style/global.css -o style/output.css",
+    "watch": "tailwindcss -i style/global.css -o style/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}
