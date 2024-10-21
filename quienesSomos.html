@@ -102,20 +102,68 @@
             asados, costillas y una variedad de platos a la brasa que están
             pensados para que puedas disfrutar en la comodidad de tu hogar.
           </p>
-          <p class="text-gray-700 mb-6 text-justify">
-            Nuestro enfoque está en la sencillez y la calidad. No tenemos
-            comedor, porque queremos centrarnos en lo que mejor sabemos hacer:
-            preparar tu pedido a la perfección, listo para llevar y disfrutar.
-            Tú encárgalo, nosotros lo preparamos y, cuando esté listo, solo
-            tienes que pasar a recogerlo.
-          </p>
         </div>
         <div class="w-full lg:w-1/2 flex justify-center">
           <img
-            src="img/png/quienes_somos.jpg"
+            src="img/png/equipoBraseiro.png"
             alt="Equipo de O Braseiro"
             class="w-full max-w-md rounded-lg shadow-lg"
           />
+        </div>
+      </section>
+
+      <!-- Segundo encabezado y texto -->
+      <section class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-black mb-6 text-center">
+          Nuestra Pasión por la comida a la brasa
+        </h2>
+        <p class="text-gray-700 mb-6 text-justify">
+          La dedicación a la calidad y el buen servicio es lo que nos distingue.
+          En O Braseiro, cada plato es una celebración de sabores cuidadosamente
+          seleccionados para ofrecerte la mejor experiencia gastronómica. Con un
+          equipo comprometido y una cocina a la vista, nos enorgullecemos de
+          crear momentos inolvidables con cada comida.
+        </p>
+      </section>
+
+      <!-- Sección del slider -->
+      <section
+        class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <div
+          class="relative w-full h-[300px] overflow-hidden rounded-lg shadow-lg"
+        >
+          <!-- Slider de la primera columna -->
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img1.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img2.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img3.jpg')"
+          ></div>
+        </div>
+
+        <div
+          class="relative w-full h-[300px] overflow-hidden rounded-lg shadow-lg"
+        >
+          <!-- Slider de la segunda columna -->
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img4.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img5.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
+            style="background-image: url('img6.jpg')"
+          ></div>
         </div>
       </section>
     </main>
@@ -221,5 +269,18 @@
         </div>
       </div>
     </footer>
+
+    <!-- Sliders que cambian de foto automaticamente -->
+    <script>
+      const sliders = document.querySelectorAll(".slider-img");
+      sliders.forEach((slider, index) => {
+        let current = 0;
+        setInterval(() => {
+          slider.classList.add("opacity-0"); // Escondemos la imagen actual
+          current = (current + 1) % sliders.length;
+          sliders[current].classList.remove("opacity-0"); // Mostramos la nueva imagen que queremos
+        }, 4500);
+      });
+    </script>
   </body>
 </html>
