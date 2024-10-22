@@ -12,9 +12,36 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .formulario {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        transition: background-color 0.3s;
+      }
+
+      .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("/img/png/fondoBarbacoaLogin.png");
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        z-index: -1;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Este div se utilizará para meter la imagen de fondo en la vista de login/registrar -->
+    <div class="background-image"></div>
+
     <!-- Cabecera aquí -->
     <header
       class="bg-zinc-900 text-white py-4 shadow-lg border-b-4 border-red-600 relative"
@@ -90,10 +117,169 @@
       </div>
     </header>
 
-    <!-- Main content aqui -->
-    <main></main>
+    <main
+      class="flex flex-col items-center justify-center min-h-screen mt-4 bg-transparent"
+    >
+      <div
+        id="form-crear-cuenta"
+        class="formulario bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
+      >
+        <h2 class="text-2xl font-bold mb-6 text-center">Crear Cuenta</h2>
+        <form class="space-y-4">
+          <div class="campo">
+            <label
+              for="nombre"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Nombre:</label
+            >
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="apellidos"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Apellidos:</label
+            >
+            <input
+              type="text"
+              id="apellidos"
+              name="apellidos"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="correo"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Correo:</label
+            >
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="fecha-nacimiento"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Fecha de nacimiento:</label
+            >
+            <input
+              type="date"
+              id="fecha-nacimiento"
+              name="fecha-nacimiento"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="contrasena"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Contraseña:</label
+            >
+            <input
+              type="password"
+              id="contrasena"
+              name="contrasena"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="confirmar-contrasena"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Confirmar contraseña:</label
+            >
+            <input
+              type="password"
+              id="confirmar-contrasena"
+              name="confirmar-contrasena"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn w-full bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Crear Cuenta
+          </button>
+        </form>
+        <p class="text-center mt-4 text-black">
+          ¿Ya tienes cuenta?
+          <span
+            id="acceder-link"
+            class="enlace text-red-500 cursor-pointer font-bold"
+            >Accede aquí</span
+          >
+        </p>
+      </div>
 
-    <!-- Footer aqui -->
+      <div
+        id="form-acceder"
+        class="formulario bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
+        style="display: none"
+      >
+        <h2 class="text-2xl font-bold mb-6 text-center">Acceder</h2>
+        <form class="space-y-4">
+          <div class="campo">
+            <label
+              for="correo-acceder"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Correo electrónico:</label
+            >
+            <input
+              type="email"
+              id="correo-acceder"
+              name="correo-acceder"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="campo">
+            <label
+              for="contrasena-acceder"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Contraseña:</label
+            >
+            <input
+              type="password"
+              id="contrasena-acceder"
+              name="contrasena-acceder"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn w-full bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Acceder
+          </button>
+        </form>
+        <p class="text-center mt-4 text-black">
+          ¿No tienes cuenta?
+          <span
+            id="registrar-link"
+            class="enlace text-red-500 cursor-pointer font-bold"
+            >Regístrate aquí</span
+          >
+        </p>
+      </div>
+    </main>
+
     <footer class="bg-zinc-900 text-white py-4 mt-8 border-t-4 border-red-600">
       <div
         class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center"
@@ -201,6 +387,25 @@
         </div>
       </div>
     </footer>
-    
+
+    <!-- Script para manejar el formulario, para ocultar/mostrar cada uno -->
+    <script>
+      // Al hacer clic en "Acceder aquí", ocultamos el formulario de registro y mostramos el otro formulario de login
+      document
+        .getElementById("acceder-link")
+        .addEventListener("click", function () {
+          document.getElementById("form-crear-cuenta").style.display = "none";
+          document.getElementById("form-acceder").style.display = "block";
+        });
+
+      // Lo mismo aquí, pero para mostrar el formulario de
+      document
+        .getElementById("registrar-link")
+        .addEventListener("click", function () {
+          document.getElementById("form-acceder").style.display = "none";
+          document.getElementById("form-crear-cuenta").style.display = "block";
+        });
+
+    </script>
   </body>
 </html>
