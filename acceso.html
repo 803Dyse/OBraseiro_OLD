@@ -62,6 +62,7 @@
           <ul class="flex space-x-12">
             <li>
               <a
+                id="menu-link"
                 href="menu.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
                 >Menú</a
@@ -69,6 +70,7 @@
             </li>
             <li>
               <a
+                id="encargar-link"
                 href="realizarPedido.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
                 >Encargar</a
@@ -76,6 +78,7 @@
             </li>
             <li>
               <a
+                id="quienesSomos-link"
                 href="quienesSomos.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
                 >Quiénes Somos</a
@@ -83,11 +86,13 @@
             </li>
             <li>
               <a
+                id="registrar-link"
                 href="acceso.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
                 >Registrar</a
               >
             </li>
+            
           </ul>
         </nav>
         <div class="w-1/4 flex justify-end space-x-6">
@@ -272,7 +277,7 @@
         <p class="text-center mt-4 text-black">
           ¿No tienes cuenta?
           <span
-            id="registrar-link"
+            id="registrar-form-link"
             class="enlace text-red-500 cursor-pointer font-bold"
             >Regístrate aquí</span
           >
@@ -397,15 +402,38 @@
           document.getElementById("form-crear-cuenta").style.display = "none";
           document.getElementById("form-acceder").style.display = "block";
         });
-
-      // Lo mismo aquí, pero para mostrar el formulario de
+    
+      // Al hacer clic en "Regístrate aquí", ocultamos el formulario de login y mostramos el de registro
       document
-        .getElementById("registrar-link")
+        .getElementById("registrar-form-link")
         .addEventListener("click", function () {
           document.getElementById("form-acceder").style.display = "none";
           document.getElementById("form-crear-cuenta").style.display = "block";
         });
-
+    
+      // Con esta constante y estas propriedades conseguimos el nombre del archivo, una vez con ese nombre
+      // solo tenemos que disparar el script para meter el estilo que creamos para la pseudoclase "active"
+      const currentPage = window.location.pathname.split("/").pop();
+    
+      // Aquí estamos aplicando la clase active al elemento del menú de navegación
+      function setActiveLink() {
+        switch (currentPage) {
+          case "menu.html":
+            document.getElementById("menu-link").classList.add("active");
+            break;
+          case "realizarPedido.html":
+            document.getElementById("encargar-link").classList.add("active");
+            break;
+          case "quienesSomos.html":
+            document.getElementById("quienesSomos-link").classList.add("active");
+            break;
+          case "acceso.html":
+            document.getElementById("registrar-link").classList.add("active");
+            break;
+        }
+      }
+      setActiveLink();
     </script>
+    
   </body>
 </html>
