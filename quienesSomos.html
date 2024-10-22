@@ -89,7 +89,7 @@
     <main>
       <!-- Contenedor de encabezado + texto y foto -->
       <section
-        class="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-8 items-start"
+        class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8 items-start"
       >
         <div class="w-full lg:w-1/2">
           <h2 class="text-4xl font-bold text-black mb-6">¿Quiénes Somos?</h2>
@@ -113,7 +113,7 @@
       </section>
 
       <!-- Segundo encabezado y texto -->
-      <section class="max-w-7xl mx-auto px-4 py-16">
+      <section class="max-w-7xl mx-auto px-4 py-8">
         <h2 class="text-4xl font-bold text-black mb-6 text-center">
           Nuestra Pasión por la comida a la brasa
         </h2>
@@ -126,43 +126,66 @@
         </p>
       </section>
 
-      <!-- Sección del slider -->
       <section
-        class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-8"
+        class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8"
       >
         <div
-          class="relative w-full h-[300px] overflow-hidden rounded-lg shadow-lg"
+          class="relative w-full h-[343px] overflow-hidden rounded-lg shadow-lg"
         >
-          <!-- Slider de la primera columna -->
+          <!-- Slider da primeira coluna -->
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img1.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 slider-img first-slider"
+            style="
+              background-image: url('img/png/clientesFelices.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img2.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img first-slider"
+            style="
+              background-image: url('img/png/cortandoCostilla-1.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img3.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img first-slider"
+            style="
+              background-image: url('img/png/EquipoEnLaCocina-1.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
         </div>
 
         <div
-          class="relative w-full h-[300px] overflow-hidden rounded-lg shadow-lg"
+          class="relative w-full h-[343px] overflow-hidden rounded-lg shadow-lg"
         >
-          <!-- Slider de la segunda columna -->
+          <!-- Slider da segunda coluna -->
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img4.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 slider-img second-slider"
+            style="
+              background-image: url('img/png/chicoEnLaParrilla-1.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img5.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img second-slider"
+            style="
+              background-image: url('img/png/empleadosEnLaCocinaTrabajando.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
           <div
-            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img"
-            style="background-image: url('img6.jpg')"
+            class="absolute inset-0 transition-opacity duration-1000 opacity-0 slider-img second-slider"
+            style="
+              background-image: url('img/png/cortandoPollo-1.png');
+              background-size: cover;
+              background-position: center;
+            "
           ></div>
         </div>
       </section>
@@ -270,17 +293,26 @@
       </div>
     </footer>
 
-    <!-- Sliders que cambian de foto automaticamente -->
+    <!-- Script para cambiar las imagenes de los sliders -->
     <script>
-      const sliders = document.querySelectorAll(".slider-img");
-      sliders.forEach((slider, index) => {
-        let current = 0;
-        setInterval(() => {
-          slider.classList.add("opacity-0"); // Escondemos la imagen actual
-          current = (current + 1) % sliders.length;
-          sliders[current].classList.remove("opacity-0"); // Mostramos la nueva imagen que queremos
-        }, 4500);
-      });
+      const firstSliderImages = document.querySelectorAll(".first-slider");
+      const secondSliderImages = document.querySelectorAll(".second-slider");
+
+      let current = 0;
+
+      // Ponemos un delay para las imagenes, jugando con la clase "opacity-0" de tailwind
+      setInterval(() => {
+        // Escondemos la imagen de los dos sliders
+        firstSliderImages[current].classList.add("opacity-0");
+        secondSliderImages[current].classList.add("opacity-0");
+
+        // Actualiza actualizamos el contador de las imagenes
+        current = (current + 1) % firstSliderImages.length;
+
+        // Mostramos las nuevas imagenes
+        firstSliderImages[current].classList.remove("opacity-0");
+        secondSliderImages[current].classList.remove("opacity-0");
+      }, 2750);
     </script>
   </body>
 </html>
