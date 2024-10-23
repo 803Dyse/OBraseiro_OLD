@@ -45,15 +45,15 @@
     </style>
   </head>
 
-  <body>
-    <!-- Cabecera aquí -->
+   <body>
+    <!-- Cabecera -->
     <header
       class="bg-zinc-900 text-white py-4 shadow-lg border-b-4 border-red-600 relative"
     >
       <div
-        class="max-w-7xl mx-auto px-4 flex items-center justify-between relative"
+        class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between relative"
       >
-        <div class="w-1/4">
+        <div class="w-1/2 md:w-1/4">
           <a href="home.html">
             <img
               src="img/png/O_Braseiro.png"
@@ -62,39 +62,39 @@
             />
           </a>
         </div>
-        <nav class="flex-grow flex justify-center">
-          <ul class="flex space-x-12">
+        <nav class="w-full md:w-auto flex justify-center">
+          <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12">
             <li>
               <a
                 href="menu.html"
-                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
+                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Menú</a
               >
             </li>
             <li>
               <a
                 href="realizarPedido.html"
-                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
+                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Encargar</a
               >
             </li>
             <li>
               <a
                 href="quienesSomos.html"
-                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
+                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Quiénes Somos</a
               >
             </li>
             <li>
               <a
                 href="acceso.html"
-                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500 relative top-2"
+                class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Registrar</a
               >
             </li>
           </ul>
         </nav>
-        <div class="w-1/4 flex justify-end space-x-6">
+        <div class="w-1/2 md:w-1/4 flex justify-end space-x-6">
           <a href="perfil.html">
             <svg
               class="w-8 h-8 fill-current text-white hover:text-red-500 transition-all duration-300"
@@ -121,10 +121,10 @@
       </div>
     </header>
 
-    <!-- Main content aqui -->
+    <!-- Main content -->
     <main>
       <div
-        class="relative flex items-center justify-center text-center h-[954px] overflow-hidden"
+        class="relative flex items-center justify-center text-center h-[500px] md:h-[954px] overflow-hidden"
       >
         <img
           src="img/png/imagenFondoBarbacoa.png"
@@ -133,7 +133,7 @@
         />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <h2
-            class="text-8xl font-bold text-white drop-shadow-2xl"
+            class="text-4xl md:text-8xl font-bold text-white drop-shadow-2xl"
             id="txtPrincipal"
           >
             ¿Nuevo por aquí? <br />
@@ -141,7 +141,7 @@
           </h2>
           <a href="menu.html">
             <button
-              class="mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl text-3xl shadow-2xl"
+              class="mt-4 md:mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl text-2xl md:text-3xl shadow-2xl"
               id="btnPrincipal"
             >
               Ir al Menú
@@ -152,11 +152,11 @@
 
       <!-- Contenedor texto y slider -->
       <section
-        class="max-w-7xl mx-auto px-4 py-12 flex items-center space-x-8 mt-12"
+        class="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 mt-12"
       >
         <!-- Columna de texto -->
-        <div class="w-1/2 text-center">
-          <h2 class="text-4xl font-bold text-black mb-6">
+        <div class="w-full md:w-1/2 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">
             ¿Qué te apetece hoy?
           </h2>
           <p class="text-gray-700 mb-6 text-justify">
@@ -170,7 +170,7 @@
           <div class="flex justify-center">
             <a href="realizarPedido.html">
               <button
-                class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-xl"
               >
                 Realizar Pedido
               </button>
@@ -179,10 +179,10 @@
         </div>
 
         <!-- Columna del slider -->
-        <div class="w-1/2">
+        <div class="w-full md:w-1/2">
           <div class="relative">
             <div
-              class="w-[560px] h-[295px] relative overflow-hidden rounded-sm shadow-md"
+              class="w-full h-[200px] md:w-[560px] md:h-[295px] relative overflow-hidden rounded-sm shadow-md"
             >
               <!-- Botones de navegación -->
               <button
@@ -190,9 +190,6 @@
                 class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10"
               >
                 &lt;
-                <!-- Esta cosa rara en realidad es el símbolo de "<", lo mismo que la que se ve abajo pero hacia la derecha. 
-                 Como no podemos poner el 'mayor que' y 'menor que' en crudo, tenemos que utilizarlos como unicode, porque sino el
-                 html entiende esos caracteres como etiquetas y nos joden el codigo-->
               </button>
               <button
                 id="next"
@@ -221,49 +218,32 @@
       <hr class="my-8 border-t border-black max-w-7xl mx-auto px-4" />
 
       <section class="max-w-7xl mx-auto px-4 py-12 overflow-hidden">
-        <div class="flex items-center space-x-8 animate-scroll">
+        <div class="flex items-center space-x-4 md:space-x-8 animate-scroll">
           <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
+            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
             style="background-image: url('img/png/barbacoa7.png')"
           ></div>
           <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
+            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
             style="background-image: url('img/png/barbacoa8.png')"
           ></div>
           <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
+            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
             style="background-image: url('img/png/barbacoa9.png')"
           ></div>
           <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa10.png')"
-          ></div>
-          <!-- Repetimos imágenes para hacer un loop continuo -->
-          <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa7.png')"
-          ></div>
-          <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa8.png')"
-          ></div>
-          <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa9.png')"
-          ></div>
-          <div
-            class="w-[560px] h-[295px] rounded-sm shadow-md"
+            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
             style="background-image: url('img/png/barbacoa10.png')"
           ></div>
         </div>
       </section>
       <hr class="my-8 border-t border-black max-w-7xl mx-auto px-4" />
 
-      <section class="max-w-7xl mx-auto px-4 py-12 flex items-center space-x-8">
-        <hr class="my-8 border-black" />
-        <!-- Columna de texto -->
-        <div class="w-1/2">
-          <h2 class="text-4xl font-bold text-black mb-6 text-center">
+      <section
+        class="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8"
+      >
+        <div class="w-full md:w-1/2 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">
             Encargar por teléfono
           </h2>
           <p class="text-gray-700 mb-6 text-justify">
@@ -272,11 +252,13 @@
             de tenerlo listo cuando llegues. Servicio rápido y eficiente, sin
             esperas.
           </p>
-          <p class="text-4xl font-bold mb-6 text-center">986 43 54 12</p>
+          <p class="text-3xl md:text-4xl font-bold mb-6 text-center">
+            986 43 54 12
+          </p>
         </div>
 
         <!-- Columna de la imagen -->
-        <div class="w-1/2">
+        <div class="w-full md:w-1/2">
           <div class="relative">
             <img
               src="img/png/empleadoEnElTelefono.png"
@@ -288,7 +270,7 @@
       </section>
     </main>
 
-    <!-- Footer aqui -->
+    <!-- Footer -->
     <footer class="bg-zinc-900 text-white py-4 mt-8 border-t-4 border-red-600">
       <div
         class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center"
