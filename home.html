@@ -23,6 +23,40 @@
         box-shadow: 0 0 10px #d34d4d;
       }
 
+      /* Este media lo metemos para mostrar el menu de moviles. */
+      @media (max-width: 460px) {
+        #desktop-menu {
+          display: none;
+        }
+        #mobile-menu {
+          display: block;
+        }
+      }
+
+      /* Este utilizamos para esconder el menu de móvil */
+      @media (min-width: 461px) {
+        #desktop-menu {
+          display: block;
+        }
+        #mobile-menu {
+          display: none;
+        }
+      }
+
+      /* Y aqui metemos estas reglas de estilo para ocultar 
+      toda la vaina de movil, porque sino entra en conflicto 
+      con la de Desktop y nos rebienta toda la estructura */
+      #fullscreen-menu {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in-out;
+      }
+
+      #fullscreen-menu.open {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
       /* Esta es la animación css para el contenedor tipo cinta, que desliza las imágenes */
       @keyframes scroll {
         0% {
@@ -45,15 +79,16 @@
     </style>
   </head>
 
-   <body>
-    <!-- Cabecera -->
+  <body>
+    <!-- Menú de escritorio -->
     <header
+      id="desktop-menu"
       class="bg-zinc-900 text-white py-4 shadow-lg border-b-4 border-red-600 relative"
     >
       <div
-        class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between relative"
+        class="max-w-7xl mx-auto px-4 flex items-center justify-between relative"
       >
-        <div class="w-1/2 md:w-1/4">
+        <div class="w-1/4">
           <a href="home.html">
             <img
               src="img/png/O_Braseiro.png"
@@ -62,10 +97,11 @@
             />
           </a>
         </div>
-        <nav class="w-full md:w-auto flex justify-center">
-          <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12">
+        <nav class="flex-grow flex justify-center">
+          <ul class="flex space-x-12">
             <li>
               <a
+                id="menu-link"
                 href="menu.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Menú</a
@@ -73,6 +109,7 @@
             </li>
             <li>
               <a
+                id="encargar-link"
                 href="realizarPedido.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Encargar</a
@@ -80,6 +117,7 @@
             </li>
             <li>
               <a
+                id="quienesSomos-link"
                 href="quienesSomos.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Quiénes Somos</a
@@ -87,6 +125,7 @@
             </li>
             <li>
               <a
+                id="registrar-link"
                 href="acceso.html"
                 class="text-lg font-semibold uppercase tracking-wider hover:text-red-500 transition-all duration-300 border-b-2 border-transparent hover:border-red-500"
                 >Registrar</a
@@ -94,7 +133,7 @@
             </li>
           </ul>
         </nav>
-        <div class="w-1/2 md:w-1/4 flex justify-end space-x-6">
+        <div class="w-1/4 flex justify-end space-x-6">
           <a href="perfil.html">
             <svg
               class="w-8 h-8 fill-current text-white hover:text-red-500 transition-all duration-300"
@@ -120,6 +159,100 @@
         </div>
       </div>
     </header>
+
+    <!-- Menú de móvil (hamburguesa) -->
+    <header id="mobile-menu" class="bg-zinc-900 text-white py-4 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <a href="home.html">
+          <img
+            src="img/png/O_Braseiro.png"
+            alt="logo de la web O Braseiro"
+            class="w-40 drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
+          />
+        </a>
+        <div class="flex space-x-3 items-center">
+          <a href="perfil.html">
+            <svg
+              class="w-7 h-7 fill-current text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                d="M224 256a128 128 0 1 0 0-256a128 128 0 1 0 0 256m-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7c0-98.5-79.8-178.3-178.3-178.3z"
+              />
+            </svg>
+          </a>
+          <a href="realizarPedido.html">
+            <svg
+              class="w-8 h-8 fill-current text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z"
+              />
+            </svg>
+          </a>
+          <button id="menu-toggle" class="text-white focus:outline-none">
+            <svg
+              class="w-8 h-8"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M3 6h18c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1s.4 1 1 1zm18 5H3c-.6 0-1 .4-1 1s.4 1 1 1h18c.6 0 1-.4 1-1s-.4-1-1-1zm0 6H3c-.6 0-1 .4-1 1s.4 1 1 1h18c.6 0 1-.4 1-1s-.4-1-1-1z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Menú fullscreen de móvil -->
+    <div
+      id="fullscreen-menu"
+      class="fixed inset-0 bg-zinc-900 text-white opacity-0 flex-col items-center justify-center z-50 transition-all transform translate-x-full duration-500"
+    >
+      <button
+        id="menu-close"
+        class="absolute top-4 right-4 text-white text-3xl focus:outline-none"
+      >
+        X
+      </button>
+      <ul
+        class="space-y-8 text-2xl font-semibold uppercase tracking-wider text-center pt-24"
+      >
+        <li>
+          <a
+            href="menu.html"
+            class="transition-all duration-300 border-b-2 border-transparent hover:bg-red-500 hover:text-white"
+            >Menú</a
+          >
+        </li>
+        <li>
+          <a
+            href="realizarPedido.html"
+            class="transition-all duration-300 border-b-2 border-transparent hover:bg-red-500 hover:text-white"
+            >Encargar</a
+          >
+        </li>
+        <li>
+          <a
+            href="quienesSomos.html"
+            class="transition-all duration-300 border-b-2 border-transparent hover:bg-red-500 hover:text-white"
+            >Quiénes Somos</a
+          >
+        </li>
+        <li>
+          <a
+            href="acceso.html"
+            class="transition-all duration-300 border-b-2 border-transparent hover:bg-red-500 hover:text-white"
+            >Registrar</a
+          >
+        </li>
+      </ul>
+    </div>
 
     <!-- Main content -->
     <main>
@@ -189,6 +322,9 @@
                 id="prev"
                 class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10"
               >
+                <!-- Esta historia del &lt la tuve que poner asi porque si 
+               escribo el símbolo directamente, el html se lo traga por 
+               completo, rompiendo el codigo -->
                 &lt;
               </button>
               <button
@@ -201,16 +337,63 @@
               <!-- Slides -->
               <div
                 class="imgSlider absolute top-0 left-0 w-full h-full transition-all duration-300"
-                style="background-image: url('img/png/barbacoa5resized.png')"
-              ></div>
+              >
+                <picture>
+                  <source
+                    media="(max-width: 416px)"
+                    srcset="img/png/barbacoa5movil.png"
+                  />
+                  <source
+                    media="(min-width: 417px)"
+                    srcset="img/png/barbacoa5resized.png"
+                  />
+                  <img
+                    src="img/png/barbacoa5resized.png"
+                    alt="Imagen de barbacoa"
+                    class="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
+
               <div
                 class="imgSlider absolute top-0 left-full w-full h-full transition-all duration-300"
-                style="background-image: url('img/png/barbacoa3resized.png')"
-              ></div>
+              >
+                <picture>
+                  <source
+                    media="(max-width: 416px)"
+                    srcset="img/png/barbacoa3movil.png"
+                  />
+                  <source
+                    media="(min-width: 417px)"
+                    srcset="img/png/barbacoa3resized.png"
+                  />
+                  <img
+                    src="img/png/barbacoa3resized.png"
+                    alt="Imagen de barbacoa"
+                    class="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
+
               <div
                 class="imgSlider absolute top-0 left-full w-full h-full transition-all duration-300"
-                style="background-image: url('img/png/barbacoa1resized.png')"
-              ></div>
+              >
+                <picture>
+                  <source
+                    media="(max-width: 416px)"
+                    srcset="img/png/barbacoa1movil.png"
+                  />
+                  <source
+                    media="(min-width: 417px)"
+                    srcset="img/png/barbacoa1resized.png"
+                  />
+                  <img
+                    src="img/png/barbacoa1resized.png"
+                    alt="Imagen de barbacoa"
+                    class="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
             </div>
           </div>
         </div>
@@ -219,24 +402,40 @@
 
       <section class="max-w-7xl mx-auto px-4 py-12 overflow-hidden">
         <div class="flex items-center space-x-4 md:space-x-8 animate-scroll">
-          <div
-            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa7.png')"
-          ></div>
-          <div
-            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa8.png')"
-          ></div>
-          <div
-            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa9.png')"
-          ></div>
-          <div
-            class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md"
-            style="background-image: url('img/png/barbacoa10.png')"
-          ></div>
+          <div class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md">
+            <picture>
+              <source media="(max-width: 416px)" srcset="img/png/barbacoa7movil.png" />
+              <source media="(min-width: 417px)" srcset="img/png/barbacoa7.png" />
+              <img src="img/png/barbacoa7.png" alt="Imagen de barbacoa" class="w-full h-full object-cover" />
+            </picture>
+          </div>
+      
+          <div class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md">
+            <picture>
+              <source media="(max-width: 416px)" srcset="img/png/barbacoa8movil.png" />
+              <source media="(min-width: 417px)" srcset="img/png/barbacoa8.png" />
+              <img src="img/png/barbacoa8.png" alt="Imagen de barbacoa" class="w-full h-full object-cover" />
+            </picture>
+          </div>
+      
+          <div class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md">
+            <picture>
+              <source media="(max-width: 416px)" srcset="img/png/barbacoa9movil.png" />
+              <source media="(min-width: 417px)" srcset="img/png/barbacoa9.png" />
+              <img src="img/png/barbacoa9.png" alt="Imagen de barbacoa" class="w-full h-full object-cover" />
+            </picture>
+          </div>
+      
+          <div class="w-[300px] h-[150px] md:w-[560px] md:h-[295px] rounded-sm shadow-md">
+            <picture>
+              <source media="(max-width: 416px)" srcset="img/png/barbacoa10movil.png" />
+              <source media="(min-width: 417px)" srcset="img/png/barbacoa10.png" />
+              <img src="img/png/barbacoa10.png" alt="Imagen de barbacoa" class="w-full h-full object-cover" />
+            </picture>
+          </div>
         </div>
       </section>
+      
       <hr class="my-8 border-t border-black max-w-7xl mx-auto px-4" />
 
       <section
@@ -399,6 +598,21 @@
         imgActual = (imgActual - 1 + imagenes.length) % imagenes.length; // Retrocedemos a la img anterior
         imagenes[imgActual].classList.remove("left-full");
         imagenes[imgActual].classList.add("left-0");
+      });
+
+      /* Script para manejar el menu hamburguesa */
+      const menuToggle = document.getElementById("menu-toggle");
+      const menuClose = document.getElementById("menu-close");
+      const fullscreenMenu = document.getElementById("fullscreen-menu");
+
+      // Abre el menú
+      menuToggle.addEventListener("click", () => {
+        fullscreenMenu.classList.add("open");
+      });
+
+      // Cierra el menú
+      menuClose.addEventListener("click", () => {
+        fullscreenMenu.classList.remove("open");
       });
     </script>
   </body>
