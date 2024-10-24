@@ -1,0 +1,43 @@
+* {
+    font-family: Montserrat, sans-serif;
+}
+
+/* Clase para el enlace activo */
+.active {
+    border-bottom-color: #ff0000;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+}
+
+/* Este media lo metemos para mostrar el menu de moviles. */
+@media (max-width: 460px) {
+    #desktop-menu {
+        display: none;
+    }
+    #mobile-menu {
+        display: block;
+    }
+}
+
+/* Este utilizamos para esconder el menu de móvil */
+@media (min-width: 461px) {
+    #desktop-menu {
+        display: block;
+    }
+    #mobile-menu {
+        display: none;
+    }
+}
+
+/* Y aqui metemos estas reglas de estilo para ocultar 
+toda la vaina de movil, porque sino entra en conflicto 
+con la de Desktop y nos rebienta toda la estructura */
+#fullscreen-menu {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+
+#fullscreen-menu.open {
+    opacity: 1;
+    transform: translateX(0);
+}
